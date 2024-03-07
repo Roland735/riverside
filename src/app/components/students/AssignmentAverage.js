@@ -3,10 +3,10 @@ import { FaChartLine, FaUser } from "react-icons/fa";
 
 function AssignmentAverage() {
   return (
-    <div className=" dark:bg-sky-900 shadows w-3/12 px-5 py-4">
+    <div className=" dark:bg-stone-900 shadows w-64 text-sm my-2 px-5 py-4">
       <div className="flex justify-between">
         <div className="">
-          <h1 className="flex items-center space-x-3">
+          <h1 className="flex items-center space-x-3 dark:text-slate-50 text-stone-900">
             <span>
               <FaUser />
             </span>

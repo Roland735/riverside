@@ -1,5 +1,4 @@
 "use client";
-// import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react"
 import { useContext, createContext, useState } from "react";
 import Link from "next/link";
 import Header from "./Header";
@@ -27,22 +26,17 @@ const ParentLayout = ({ children }) => {
       src: "Search",
       DashoardLink: "../parent/communications",
     },
-    {
-      title: "Quiz and Games",
-      src: "Setting",
-      DashoardLink: "../parent/quizandgames",
-    },
     { title: "Settings", src: "Setting", DashoardLink: "../parent/settings" },
   ];
 
   return (
     <div
-      className={`flex bg-gradient-to-tr from-sky-50 via-sky-100 to-gray-300  dark:bg-gradient-to-tr dark:from-sky-950 from-10% dark:via-sky-800 via-80% dark:to-sky-950 to-90% `}
+      className={`flex bg-gradient-to-tr from-stone-50 via-stone-100 to-gray-300  dark:bg-gradient-to-tr dark:from-stone-800 from-10% dark:via-stone-800 via-80% dark:to-stone-950 to-90% `}
     >
       <div
         className={` ${
           open ? "w-72" : "w-20 "
-        } visuals min-h-screen p-5  pt-8 relative duration-300 border-none dark:bg-transparent shadow-sky-700 shadow-2xl `}
+        } visuals min-h-screen p-5  pt-8 relative duration-300 border-none dark:bg-transparent shadow-stone-700 shadow-2xl `}
       >
         <img
           src="../assets/control.png"
@@ -58,7 +52,7 @@ const ParentLayout = ({ children }) => {
             }`}
           />
           <h1
-            className={`text-slate-800 dark:text-slate-100 origin-left font-medium text-xl duration-200 tracking-widest font-light ${
+            className={`text-stone-800 dark:text-stone-100 origin-left  text-xl duration-200 tracking-widest font-light ${
               !open && "scale-0"
             }`}
           >
@@ -67,7 +61,7 @@ const ParentLayout = ({ children }) => {
           </h1>
         </div>
         <div
-          className={`w-full flex flex-col items-center my-10 text-slate-950 dark:text-slate-50 ${
+          className={`w-full flex flex-col items-center my-10 text-stone-950 dark:text-stone-50 ${
             open ? "relative    " : "hidden"
           }`}
         >
@@ -84,7 +78,7 @@ const ParentLayout = ({ children }) => {
             <Link href={Menu.DashoardLink}>
               <li
                 key={index}
-                className={`flex  rounded-md p-2 cursor-pointer hover:bg-slate-600 transition-all duration-300  text-slate-800 dark:text-slate-100 text-sm items-center gap-x-4 
+                className={`flex  rounded-md p-2 cursor-pointer hover:bg-stone-600 transition-all duration-300  text-stone-800 dark:text-stone-100 text-sm items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                   index === 0 && "bg-light-white"
                 } `}

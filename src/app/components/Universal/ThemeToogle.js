@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { FaMoon } from "react-icons/fa";
 import { BsSunFill } from "react-icons/bs"
@@ -23,10 +24,10 @@ function ThemeToogle() {
         }
     }, [darkMode])
 
-    return <div className="text-slate-800 dark:text-slate-50"
+    return <div className="text-stone-800 dark:text-stone-50"
         onClick={() => {
             setDarkMode(!darkMode)
-            console.log(darkMode)
+            console.log(localStorage.getItem("theme"))
         }}
     >
         <FaMoon />

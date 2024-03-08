@@ -4,6 +4,7 @@ import BestStudents from "./BestStudents";
 import AverageMark from "./AverageMark";
 import StudentList from "./StudentsList";
 import SubjectAverages from "../../students/Specific/SubjectAverages";
+import Anomalies from "../exams/Anomalies";
 
 function Class() {
   return (
@@ -24,6 +25,9 @@ function Class() {
         <div className="h-96 border-2 border-emerald-600 rounded-md colors">
           <SubjectAverages />
         </div>
+      </div>
+      <div className="my-10">
+        <Anomalies />
       </div>
       <div className="colors">
         <StudentList />

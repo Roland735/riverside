@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { AiOutlineBarChart, AiOutlineLineChart } from "react-icons/ai";
 
@@ -175,7 +176,10 @@ const Anomalies = ({}) => {
             </thead>
             <tbody>
               {filteredStudents.map((student) => (
-                <tr key={student.id} className="border-b border-gray-200">
+                <tr
+                  key={student.id}
+                  className="border-b border-gray-200 hover:bg-gray-100"
+                >
                   <td className="py-2 px-4 ">{student.name}</td>
                   <td className="py-2 px-4 text-center">
                     {student.changeExamMark}

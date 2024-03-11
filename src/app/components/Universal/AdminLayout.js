@@ -34,7 +34,7 @@ const AdminLayout = ({ children }) => {
         {
             title: "Quiz & Games",
             src: "Search",
-            DashoardLink: "../admin/quizandga",
+            DashoardLink: "../admin/quizandgames",
         },
         {
             title: "Class Management",
@@ -44,7 +44,7 @@ const AdminLayout = ({ children }) => {
         {
             title: "User Management",
             src: "Search",
-            DashoardLink: "../admin/usermanagent",
+            DashoardLink: "../admin/usermanagement",
         },
 
     ];

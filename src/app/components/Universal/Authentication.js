@@ -1,61 +1,95 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
-function Authentication() {
+const Authentication = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("student"); // Set default role
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Add validation here (e.g., check for empty fields, valid email format)
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password, role }),
+      });
+
+      const data = await response.json();
+
+      if (data.message === "User created successfully") {
+        console.log(data);
+        console.log("User registered successfully!");
+        // Redirect to login page (or display success message)
+      } else {
+        console.error(data.message);
+        console.log(data);
+        // Display error message to user
+      }
+    } catch (error) {
+      console.error(error);
+      // Handle network errors
+    }
+
+    setName("");
+    setEmail("");
+    setPassword("");
+  };
+
   return (
-    <div className="bg-white shadows rounded-lg px-2 py-7 flex flex-col items-center justify-center space-y-10 w-10/12">
-      <h1 className="text-2xl">Please enter your credentials</h1>
-      <form
-        action="/"
-        method="post"
-        className="w-full flex flex-col items-center justify-center"
-      >
-        <div className="mb-5 w-10/12 flex flex-col space-y-2">
-          <label htmlFor="email" className="text-sm font-medium text-gray-700">
-            Email:
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="johndoe@gmail.com"
-            className="rounded-lg border border-rose-700 px-4 py-2 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
-            required
-          />
-        </div>
-        <div className="flex flex-col space-y-2 w-10/12">
-          <label
-            htmlFor="password"
-            className="text-sm font-medium text-gray-700"
-          >
-            Password:
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter your password"
-            className="rounded-lg border border-rose-700 px-4 py-2 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"
-            required
-          />
-        </div>
-        <div className="text-center my-5">
-          <h2 className="text-sm">
-            Login as{" "}
-            <span className="underline cursor-pointer hover:no-underline">
-              Stuff Member
-            </span>
-          </h2>
-        </div>
-        <div className="flex items-center justify-center w-full">
-          <input
-            type="submit"
-            value="Login"
-            className="bg-red-700 rounded-md text-slate-50 py-3 px-4"
-          />
-        </div>
+    <div className="register-form flex">
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit} className="flex-col flex space-y-5 ">
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="light-border"
+        />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <label htmlFor="role">Role:</label>
+        <select
+          id="role"
+          name="role"
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+        >
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+          <option value="parent">Parent</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit" className="bg-emerald-700">
+          Register
+        </button>
       </form>
     </div>
   );
-}
+};
 
 export default Authentication;
